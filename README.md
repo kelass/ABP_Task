@@ -1,6 +1,6 @@
 <h1 align="center">ABP Task</h1>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Created+by+Prysukha+Mykola)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&center=true&width=435&lines=Created+by+Prysukha+Mykola)](https://git.io/typing-svg)
 
 <h1 align="center">Option 1</h1>
 <h3>Stack:</h3>
