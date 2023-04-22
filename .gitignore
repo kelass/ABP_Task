@@ -396,3 +396,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+TZ.API/obj
+TZ.API/bin
+TZ.Data/obj
+TZ.Data/bin
+TZ.Domain/obj
+TZ.Domain/bin
+TZ.UI/obj
+TZ.UI/bin
