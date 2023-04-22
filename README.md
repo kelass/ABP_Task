@@ -11,5 +11,5 @@
 
 ![image](https://user-images.githubusercontent.com/69418373/233799193-5db9ae0b-0dfe-417b-b859-68fb4635a956.png)
 
-<h1 align="center">Introduction</h1>
+<h1 align="center">Concepts</h1>
 <p>DeviceToken - token, which contains device name</p>
