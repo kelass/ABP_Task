@@ -9,6 +9,7 @@ namespace TZ.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        IBaseRepository<Experiment> Experiments { get; }
+        IExperimentResultRepository ExperimentResults { get; }
+        IExperimentRepository Experiments { get; }
     }
 }

@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 string connect = builder.Configuration.GetConnectionString("PersonalConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect));
-builder.Services.AddScoped<IBaseRepository<Experiment>, ExperimentRepository>();
+builder.Services.AddScoped<IExperimentResultRepository, ExperimentResultRepository>();
+builder.Services.AddScoped<IExperimentRepository, ExperimentRepository>();
 builder.Services.AddTransient<UnitOfWork>();
 builder.Services.AddControllers();
 

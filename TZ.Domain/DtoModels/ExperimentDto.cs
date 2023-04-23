@@ -9,8 +9,6 @@ namespace TZ.Domain.DtoModels
     public class ExperimentDto
     {
         public Guid Id { get; set; }
-        public string DeviceToken { get; set; }
-        public string Value { get; set; }
-        public string Key = "button_color";
+        public string Name { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TZ.Data;
 
@@ -11,9 +12,11 @@ using TZ.Data;
 namespace TZ.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230423180727_AddForeignKeyOfExperiment")]
+    partial class AddForeignKeyOfExperiment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,18 +38,6 @@ namespace TZ.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Experiments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("eb63b870-0675-4dbe-89d7-3e64bdb21f31"),
-                            Name = "price"
-                        },
-                        new
-                        {
-                            Id = new Guid("a3dc9081-6dc1-4cf1-9e44-cefe22f97e85"),
-                            Name = "button_color"
-                        });
                 });
 
             modelBuilder.Entity("TZ.Domain.DbModels.ExperimentResult", b =>

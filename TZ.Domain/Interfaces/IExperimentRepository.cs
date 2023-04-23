@@ -8,13 +8,9 @@ using TZ.Domain.DtoModels;
 
 namespace TZ.Domain.Interfaces
 {
-    public interface IBaseRepository<T>
+    public interface IExperimentRepository:IBaseRepository<Experiment>
     {
-        
-        Task<bool> DeleteAsync(Guid Id);
-        Task<T> GetByIdAsync(Guid Id);
-        Task<List<T>> SelectAsync();
-        
-
+        Task<bool> CreateAsync(ExperimentDto entity);
+        Task<bool> UpdateAsync(ExperimentDto entity);
     }
 }

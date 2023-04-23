@@ -18,17 +18,18 @@ namespace TZ.UI.Controllers
             
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> ExperimentOne()
         {
+            Guid id = Guid.Parse("A3DC9081-6DC1-4CF1-9E44-CEFE22F97E85");
+
             //Get global IP address of user
             var request = _httpClientFactory.CreateClient();
             var requestToIpify = await request.GetAsync("https://api.ipify.org");
             var ipAddress = await requestToIpify.Content.ReadAsStringAsync();
 
-            //Create ExperimentDto and serialize to JSON
-
+            
             var apiClient = _httpClientFactory.CreateClient();
-            string url = "https://localhost:7068/api/Experiment";
+            string url = "https://localhost:7068/api/RequestExperiment/";
             var response = await apiClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
 

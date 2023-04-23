@@ -13,12 +13,20 @@ namespace TZ.Services
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
+        private ExperimentResultRepository _experimentResultRepository;
         private ExperimentRepository _experimentRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IBaseRepository<Experiment> Experiments
+        public IExperimentResultRepository ExperimentResults
+        {
+            get
+            {
+                return _experimentResultRepository = _experimentResultRepository ?? new ExperimentResultRepository(_context);
+            }
+        }
+        public IExperimentRepository Experiments
         {
             get
             {
