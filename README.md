@@ -10,7 +10,7 @@
 <li>SSMS</li>
 <h1 align="center">Diagrams</h1>
 
-![image](https://user-images.githubusercontent.com/69418373/233799193-5db9ae0b-0dfe-417b-b859-68fb4635a956.png)
+![image](https://user-images.githubusercontent.com/69418373/233869153-87aa49c6-2ef0-497b-89bc-f33d8ce27533.png)
 
 <h1 align="center">Concepts</h1>
 <p>DeviceToken - token, which contains device name</p>
