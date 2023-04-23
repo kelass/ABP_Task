@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.API", "TZ.API\TZ.API.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.Domain", "TZ.Domain\TZ.Domain.csproj", "{1471B24B-A2E0-461D-B806-1C512D5BEB9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TZ.Data", "TZ.Data\TZ.Data.csproj", "{670CBE45-75F7-48C9-A359-D792B199F323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.Data", "TZ.Data\TZ.Data.csproj", "{670CBE45-75F7-48C9-A359-D792B199F323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TZ.Services", "TZ.Services\TZ.Services.csproj", "{6BD1C7F0-E192-4DCE-81CB-492CDF733942}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{670CBE45-75F7-48C9-A359-D792B199F323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670CBE45-75F7-48C9-A359-D792B199F323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670CBE45-75F7-48C9-A359-D792B199F323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

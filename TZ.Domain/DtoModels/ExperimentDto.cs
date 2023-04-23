@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TZ.Domain
+namespace TZ.Domain.DtoModels
 {
-    public class Experiment
+    public class ExperimentDto
     {
         public Guid Id { get; set; }
         public string DeviceToken { get; set; }
         public string Value { get; set; }
-        public string Key { get; set; } = "button_color";
+        public string Key = "button_color";
     }
 }

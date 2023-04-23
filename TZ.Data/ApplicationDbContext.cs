@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TZ.Domain;
+using TZ.Domain.DbModels;
 
 namespace TZ.Data
 {
