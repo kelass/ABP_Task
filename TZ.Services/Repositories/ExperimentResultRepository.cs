@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TZ.Data;
@@ -15,7 +16,6 @@ namespace TZ.Services.Repositories
     public class ExperimentResultRepository : IExperimentResultRepository
     {
         public List<string> colors = new List<string> { "#FF0000", "#00FF00", "#0000FF" };
-
         private readonly ApplicationDbContext _context;
         public ExperimentResultRepository(ApplicationDbContext context)
         {
@@ -24,24 +24,30 @@ namespace TZ.Services.Repositories
         public async Task<bool> CreateAsync(ExperimentResultDto entity)
         {  
             ExperimentResult experiment = await GetByIdAsync(entity.Id);
-            int i = 0;
+            
             Experiment exp = await _context.Experiments.FirstOrDefaultAsync(e=>e.Id == entity.ExperimentId); //Check of experiment, get name and Id of experiment
-               
-                if (experiment != null)
-                {
+            ExperimentResult token = await _context.ExperimentResults.FirstOrDefaultAsync(e => e.DeviceToken == entity.DeviceToken); //Check of experimentresults token, that the user does not pass the experiment 2 times
+
+            if (experiment == null && token == null)
+            {
+                Random random = new Random();
                 if (exp.Name == "button_color") 
                 {
-                    entity.Value = colors[i];
-                    ExperimentResult model = new ExperimentResult { DeviceToken = entity.DeviceToken, Id = entity.Id, Key = exp.Name, Value = entity.Value };
-
-                    //Checking if a number is out of list
-                    var CheckNumber = i<=colors.Count() ? i++ : i=0;
+                    //I didn't guess how to do it faster and correctly :(
+                    var number = random.NextInt64(0, 100);
+                    if(number <= 33.3)
+                    entity.Value = colors[0];
+                    else if(number >=33.4 && number<=66.7)
+                        entity.Value = colors[1];
+                    else if (number >= 66.8)
+                        entity.Value = colors[2];
+                    
+                    ExperimentResult model = new ExperimentResult { DeviceToken = entity.DeviceToken, Id = entity.Id, Key = exp.Name, Value = entity.Value, Experiment = exp };
                     await _context.AddAsync(model);
                 }
                 else
                 {
-                    //I didn't guess how to do it faster :(
-                    Random random = new Random();
+                    //I didn't guess how to do it faster and correctly :(
                     var number = random.Next(0, 100);
                     if (number <= 75)
                         entity.Value = 10.ToString();
@@ -52,13 +58,13 @@ namespace TZ.Services.Repositories
                     else if (number > 90)
                         entity.Value = 5.ToString();
 
-                    ExperimentResult model = new ExperimentResult { DeviceToken = entity.DeviceToken, Id = entity.Id, Key = exp.Name, Value = entity.Value };
+                    ExperimentResult model = new ExperimentResult { DeviceToken = entity.DeviceToken, Id = entity.Id, Key = exp.Name, Value = entity.Value, Experiment=exp };
                     await _context.AddAsync(model);
                 }
                     
                     return true;
-                }   
-                return false;
+            } 
+                    return false;
         }
 
         public async Task<bool> DeleteAsync(Guid Id)
@@ -80,6 +86,12 @@ namespace TZ.Services.Repositories
             return experiment;
         }
 
+        public async Task<ExperimentResult> GetByDeviceTokenAsync(string DeviceToken)
+        {
+            ExperimentResult? experiment = await _context.ExperimentResults.FirstOrDefaultAsync(e => e.DeviceToken == DeviceToken);
+
+            return experiment;
+        }
         public async Task<List<ExperimentResult>> SelectAsync()
         {
             List<ExperimentResult> experiments = await _context.ExperimentResults.ToListAsync();

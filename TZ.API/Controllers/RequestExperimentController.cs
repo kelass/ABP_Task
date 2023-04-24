@@ -15,12 +15,16 @@ namespace TZ.API.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-       
+
         [HttpGet]
         public async Task<ActionResult<ExperimentResult>> Experiment([FromQuery] ExperimentResultDto entity)
         {
             var experiment = await _unitOfWork.ExperimentResults.CreateAsync(entity);
-            return Ok(experiment);
+            await _unitOfWork.SaveAsync();
+
+            //Get entity by deviceToken
+            var model = await _unitOfWork.ExperimentResults.GetByDeviceTokenAsync(entity.DeviceToken);
+             return Ok(model.Value);
         }
     }
 }

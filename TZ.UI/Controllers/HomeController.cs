@@ -4,6 +4,8 @@ using TZ.UI.Models;
 using System.Net.NetworkInformation;
 using System.Net.Http;
 using TZ.Domain.DtoModels;
+using System.Security.Cryptography;
+using TZ.Services;
 
 namespace TZ.UI.Controllers
 {
@@ -27,11 +29,31 @@ namespace TZ.UI.Controllers
             var requestToIpify = await request.GetAsync("https://api.ipify.org");
             var ipAddress = await requestToIpify.Content.ReadAsStringAsync();
 
+            MD5Hash.ConvertToMD5(ref ipAddress);
             
             var apiClient = _httpClientFactory.CreateClient();
-            string url = "https://localhost:7068/api/RequestExperiment/";
+            string url = "https://localhost:7068/api/RequestExperiment/?Id="+Guid.NewGuid()+"&DeviceToken="+ipAddress+"&ExperimentId="+id;
             var response = await apiClient.GetAsync(url);
-            var content = await response.Content.ReadAsStringAsync();
+            ViewBag.Value = await response.Content.ReadAsStringAsync();
+
+            return View();
+        }
+
+        public async Task<IActionResult> ExperimentTwo()
+        {
+            Guid id = Guid.Parse("EB63B870-0675-4DBE-89D7-3E64BDB21F31");
+
+            //Get global IP address of user
+            var request = _httpClientFactory.CreateClient();
+            var requestToIpify = await request.GetAsync("https://api.ipify.org");
+            var ipAddress = await requestToIpify.Content.ReadAsStringAsync();
+
+            MD5Hash.ConvertToMD5(ref ipAddress);
+
+            var apiClient = _httpClientFactory.CreateClient();
+            string url = "https://localhost:7068/api/RequestExperiment/?Id=" + Guid.NewGuid() + "&DeviceToken=" + ipAddress + "&ExperimentId=" + id;
+            var response = await apiClient.GetAsync(url);
+            ViewBag.Price = await response.Content.ReadAsStringAsync();
 
             return View();
         }
