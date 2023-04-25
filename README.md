@@ -14,6 +14,22 @@
 
 ![image](https://user-images.githubusercontent.com/69418373/233869185-b54581da-8a34-41b9-9714-7391f6794f2e.png)
 
-<h1 align="center">Concepts</h1>
-<p>DeviceToken - token, which contains device name</p>
+<h1 align="center">Unit tests</h1>
 
+![image](https://user-images.githubusercontent.com/69418373/234336152-07c979dd-b492-4e56-8f22-b35fce52b698.png)
+
+<h1 align="center">API</h1>
+
+![image](https://user-images.githubusercontent.com/69418373/234336326-7ff9d10e-f85b-4447-a94a-ee49a43ea5ac.png)
+
+<h1 align="center">Experiment two</h1>
+
+![image](https://user-images.githubusercontent.com/69418373/234336439-f8d046b1-83c2-4ac8-a161-900114944bd4.png)
+
+<h1 align="center">Experiment one</h1>
+
+![image](https://user-images.githubusercontent.com/69418373/234336723-31e30c36-4096-4571-9d20-91dfec6b229f.png)
+
+<h1 align="center">Statistic of experiments</h1>
+
+![image](https://user-images.githubusercontent.com/69418373/234336790-5183fe22-6271-4ca8-8d64-a65025b8ffad.png)
