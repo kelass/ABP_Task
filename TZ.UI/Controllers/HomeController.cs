@@ -6,6 +6,11 @@ using System.Net.Http;
 using TZ.Domain.DtoModels;
 using System.Security.Cryptography;
 using TZ.Services;
+using System.Net;
+using TZ.Domain.DbModels;
+using TZ.Domain.ViewModels;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace TZ.UI.Controllers
 {
@@ -58,9 +63,29 @@ namespace TZ.UI.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Main()
         {
             return View();
+        }
+        public IActionResult Statistic()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Statistic(string key)
+        {
+            var apiClient = _httpClientFactory.CreateClient();
+            string url = "https://localhost:7068/api/RequestExperiment/"+key;
+            var response = await apiClient.GetAsync(url);
+            string experiments = await response.Content.ReadAsStringAsync();
+           
+            
+            //Create view model
+            ExperimentsViewModel vm = new ExperimentsViewModel();
+            vm.Experiments = JsonConvert.DeserializeObject<List<ExperimentResult>>(experiments);
+            ViewBag.Count = vm.Experiments.Count();
+
+            return View(vm.Experiments);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

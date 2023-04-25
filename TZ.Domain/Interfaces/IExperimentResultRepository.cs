@@ -13,5 +13,6 @@ namespace TZ.Domain.Interfaces
         Task<bool> CreateAsync(ExperimentResultDto entity);
         Task<bool> UpdateAsync(ExperimentResultDto entity);
         Task<ExperimentResult> GetByDeviceTokenAsync(string DeviceToken);
+        Task<List<ExperimentResult>> GetByValueAsync(string Value);
     }
 }

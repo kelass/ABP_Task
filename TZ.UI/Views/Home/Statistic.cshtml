@@ -1,0 +1,52 @@
+﻿@using TZ.Domain.DbModels;
+@model IEnumerable<ExperimentResult>
+<form method="post">
+    <input type="hidden" name="key" value="button_color" />
+<button type="submit">Button_color</button>
+</form>
+
+<form method="post">
+    <input type="hidden" name="key" value="price" />
+    <button type="submit">Price</button>
+</form>
+
+<div>
+    <div class="col-lg-12 mt-5 pt-5">
+        <h5 class="danger-text">@TempData["Error"]</h5>
+        <div class="overflow-auto text-nowrap">
+            <table class="table basic-table">
+                <thead class="table-headers">
+                    <tr>
+                        <th>
+                            Hash
+                        </th>
+                        <th>
+                            Key
+                        </th>
+                        <th>Value</th>
+                        <th>Count devices: @ViewBag.Count</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" class="table-records">
+                    @if (Model != null)
+                    {
+                        foreach (var experiment in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @experiment.DeviceToken
+                                </td>
+                                <td>
+                                    @experiment.Key
+                                </td>
+                                <td>
+                                    @experiment.Value
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
