@@ -9,6 +9,7 @@
 <li>EntityFramework Core</li>
 <li>Web API</li>
 <li>SSMS</li>
+<li>Unit test (NUnit)</li>
 <h1 align="center">Diagrams</h1>
 
 ![image](https://user-images.githubusercontent.com/69418373/233869185-b54581da-8a34-41b9-9714-7391f6794f2e.png)
