@@ -12,7 +12,7 @@ namespace TZ.Data
         {
             Database.Migrate();
         }
-
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, string test) : base(options) { Database.EnsureCreated(); }
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             base.OnModelCreating(modelbuilder);
