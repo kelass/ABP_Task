@@ -22,7 +22,7 @@ namespace TZ.Services.Repositories
         {
             Experiment experiment = await GetByIdAsync(entity.Id);
 
-            if (experiment != null)
+            if (experiment == null)
             {
                 
                 Experiment model = new Experiment {Id = entity.Id, Name = entity.Name };
