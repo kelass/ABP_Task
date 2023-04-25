@@ -97,6 +97,11 @@ namespace TZ.Services.Repositories
             List<ExperimentResult> experiments = await _context.ExperimentResults.ToListAsync();
             return experiments;
         }
+        public async Task<List<ExperimentResult>> GetByValueAsync(string Key)
+        {
+            List<ExperimentResult> experiments = await _context.ExperimentResults.Where(e=>e.Key==Key).ToListAsync();
+            return experiments;
+        }
 
         public async Task<bool> UpdateAsync(ExperimentResultDto entity)
         {
@@ -111,5 +116,6 @@ namespace TZ.Services.Repositories
             }
             return false;
         }
+
     }
 }

@@ -13,8 +13,6 @@ namespace TZ.Domain.Interfaces
         
         Task<bool> DeleteAsync(Guid Id);
         Task<T> GetByIdAsync(Guid Id);
-        Task<List<T>> SelectAsync();
-        
-
+        Task<List<T>> SelectAsync();   
     }
 }

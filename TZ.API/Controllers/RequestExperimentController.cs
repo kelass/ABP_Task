@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TZ.Domain.DbModels;
 using TZ.Domain.DtoModels;
+using TZ.Domain.ViewModels;
 using TZ.Services;
 
 namespace TZ.API.Controllers
@@ -25,6 +26,13 @@ namespace TZ.API.Controllers
             //Get entity by deviceToken
             var model = await _unitOfWork.ExperimentResults.GetByDeviceTokenAsync(entity.DeviceToken);
              return Ok(model.Value);
+        }
+
+        [HttpGet("{Key}")]
+        public async Task<ActionResult<List<ExperimentResult>>> GetListByKey(string Key)
+        {
+            List<ExperimentResult> experiments = await _unitOfWork.ExperimentResults.GetByValueAsync(Key);
+            return Ok(experiments);
         }
     }
 }

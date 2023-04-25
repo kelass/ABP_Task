@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.Domain", "TZ.Domain\TZ.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.Data", "TZ.Data\TZ.Data.csproj", "{670CBE45-75F7-48C9-A359-D792B199F323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TZ.Services", "TZ.Services\TZ.Services.csproj", "{6BD1C7F0-E192-4DCE-81CB-492CDF733942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TZ.Services", "TZ.Services\TZ.Services.csproj", "{6BD1C7F0-E192-4DCE-81CB-492CDF733942}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BFCCE5DB-6E5B-4895-A93F-568EAB44CA7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TZ.Services.Tests", "TZ.Services.Tests\TZ.Services.Tests.csproj", "{5A43C2F0-CD9A-41C5-AAC0-1E727692D369}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,16 @@ Global
 		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BD1C7F0-E192-4DCE-81CB-492CDF733942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A43C2F0-CD9A-41C5-AAC0-1E727692D369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A43C2F0-CD9A-41C5-AAC0-1E727692D369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A43C2F0-CD9A-41C5-AAC0-1E727692D369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A43C2F0-CD9A-41C5-AAC0-1E727692D369}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A43C2F0-CD9A-41C5-AAC0-1E727692D369} = {BFCCE5DB-6E5B-4895-A93F-568EAB44CA7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DBB8767-FD6A-4FBF-A783-027704CE57D5}
