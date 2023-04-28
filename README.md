@@ -9,7 +9,7 @@
 <li>ASP.NET Core</li>
 <li>EntityFramework Core</li>
 <li>Web API</li>
-<li>SSMS</li>
+<li>Bogus</li>
 <li>Unit test (NUnit)</li>
 <h1 align="center">Diagrams</h1>
 
